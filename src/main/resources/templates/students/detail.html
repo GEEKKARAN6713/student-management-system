@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Student Details')}"></head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+
+<main class="container main-content">
+    <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
+
+    <div class="page-header">
+        <h1 th:text="${student.firstName + ' ' + student.lastName}">Student</h1>
+        <p>Student ID <span th:text="${student.studentId}">1</span></p>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="label">Email</div>
+                    <div class="value" th:text="${student.email}">—</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Phone</div>
+                    <div class="value" th:text="${student.phone != null ? student.phone : '—'}">—</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Date of birth</div>
+                    <div class="value" th:text="${student.dateOfBirth}">—</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Enrollment date</div>
+                    <div class="value" th:text="${student.enrollmentDate != null ? student.enrollmentDate : '—'}">—</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Course</div>
+                    <div class="value" th:text="${student.course}">—</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">GPA</div>
+                    <div class="value" th:text="${#numbers.formatDecimal(student.gpa, 1, 2)}">—</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Status</div>
+                    <div class="value">
+                        <span class="badge badge-active" th:text="${student.status}">ACTIVE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <a th:href="@{/students/{id}/edit(id=${student.studentId})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{/students}" class="btn btn-secondary">Back to list</a>
+                <form th:action="@{/students/{id}/delete(id=${student.studentId})}" method="post"
+                      onsubmit="return confirm('Delete this student permanently?');">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:replace="~{fragments :: footer}"></div>
+</body>
+</html>

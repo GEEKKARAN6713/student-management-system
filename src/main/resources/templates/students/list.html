@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head('Students')}"></head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+
+<main class="container main-content">
+    <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
+    <div th:if="${errorMessage}" class="alert alert-error" th:text="${errorMessage}"></div>
+
+    <div class="page-header">
+        <h1>Students</h1>
+        <p>Manage enrollments, courses, and academic records.</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="label">Total</div>
+            <div class="value" th:text="${totalCount}">0</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="toolbar">
+            <form class="search-form" th:action="@{/students}" method="get">
+                <input type="text" name="course" placeholder="Search by course…" th:value="${courseFilter}"/>
+                <button type="submit" class="btn btn-secondary btn-sm">Search</button>
+            </form>
+            <a th:href="@{/students/new}" class="btn btn-primary btn-sm">+ Register Student</a>
+        </div>
+
+        <div class="table-wrap" th:if="${!students.isEmpty()}">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                    <th>GPA</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="s : ${students}">
+                    <td th:text="${s.studentId}">1</td>
+                    <td th:text="${s.firstName + ' ' + s.lastName}">Name</td>
+                    <td th:text="${s.email}">email</td>
+                    <td th:text="${s.course}">Course</td>
+                    <td th:text="${#numbers.formatDecimal(s.gpa, 1, 2)}">0.00</td>
+                    <td>
+                        <span class="badge"
+                              th:class="'badge badge-' + ${#strings.toLowerCase(s.status.name())}"
+                              th:text="${s.status}">ACTIVE</span>
+                    </td>
+                    <td>
+                        <div class="actions">
+                            <a th:href="@{/students/{id}(id=${s.studentId})}" class="btn btn-secondary btn-sm">View</a>
+                            <a th:href="@{/students/{id}/edit(id=${s.studentId})}" class="btn btn-secondary btn-sm">Edit</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="empty-state" th:if="${students.isEmpty()}">
+            <p>No students found.</p>
+            <p><a th:href="@{/students/new}">Register your first student</a></p>
+        </div>
+    </div>
+</main>
+
+<div th:replace="~{fragments :: footer}"></div>
+</body>
+</html>
