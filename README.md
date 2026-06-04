@@ -257,7 +257,7 @@ This project demonstrates:
 
 **Karan Kamble**
 
-Final Year B.Tech (ENTC)
+Final Year B.Tech (INFORMATION TECHNOLOGY)
 
 GitHub: https://github.com/GEEKKARAN6713
 
