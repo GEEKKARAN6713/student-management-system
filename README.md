@@ -1,103 +1,266 @@
-# Student Management System
+# 🎓 Student Management System
 
-Full-stack **Student Management System** built with **Java**, **JDBC**, **MySQL**, and **Spring Boot**. Includes a responsive web UI, validation, exception handling, and deployment-ready Docker config.
+> A modern full-stack Student Management System built with **Java**, **Spring Boot**, **JDBC**, **MySQL**, and **Thymeleaf**.
 
-![Java](https://img.shields.io/badge/Java-17+-orange)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4-green)
-![MySQL](https://img.shields.io/badge/MySQL-8-blue)
+![Java](https://img.shields.io/badge/Java-17+-orange?style=for-the-badge)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4-green?style=for-the-badge)
+![MySQL](https://img.shields.io/badge/MySQL-8-blue?style=for-the-badge)
+![Maven](https://img.shields.io/badge/Maven-Build-red?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)
 
-## Features
+---
 
-- Relational MySQL schema with constraints, indexes, and audit history
-- JDBC `PreparedStatement` CRUD via DAO layer
-- Spring Boot web UI (list, search, register, edit, delete)
-- Input validation and structured exceptions
-- Docker + Render blueprint for deployment
+## 🚀 Overview
 
-## Tech stack
+This project is a complete Student Management System that allows administrators to manage student records through a modern web interface.
 
-| Layer | Technology |
-|-------|------------|
-| Backend | Java 17+, Spring Boot 3 |
-| Data | JDBC, MySQL 8 |
-| UI | Thymeleaf, HTML/CSS |
-| Build | Maven |
+The application demonstrates real-world backend development concepts including:
 
-## Quick start (local)
+* CRUD Operations
+* JDBC Database Integration
+* Layered Architecture (DAO → Service → Controller)
+* Input Validation
+* Exception Handling
+* Spring Boot MVC
+* MySQL Database Design
+* Deployment-Ready Configuration
 
-### Prerequisites
+---
 
-- JDK 17+
-- Maven 3.9+ (or IntelliJ with Maven)
-- MySQL 8 running locally
+# 📸 Screenshots
 
-### Database
+## 🏠 Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+## 👨‍🎓 Student List
+
+![Student List](screenshots/students.png)
+
+---
+
+## ➕ Add Student
+
+![Add Student](screenshots/add-student.png)
+
+---
+
+## ✏️ Edit Student
+
+![Edit Student](screenshots/edit-student.png)
+
+---
+
+# ✨ Features
+
+### Student Management
+
+* Register new students
+* View student details
+* Update student records
+* Delete student records
+* Search students by course
+
+### Database Features
+
+* Relational MySQL schema
+* Foreign key constraints
+* Indexed queries
+* Audit history tracking
+
+### Security & Validation
+
+* Input validation
+* Email validation
+* GPA validation
+* Structured exception handling
+
+### Deployment Ready
+
+* Docker support
+* Railway deployment support
+* Render deployment support
+* Environment-based configuration
+
+---
+
+# 🛠️ Tech Stack
+
+| Layer       | Technology              |
+| ----------- | ----------------------- |
+| Backend     | Java 17+, Spring Boot 3 |
+| Database    | MySQL 8                 |
+| Data Access | JDBC                    |
+| Frontend    | Thymeleaf, HTML, CSS    |
+| Build Tool  | Maven                   |
+| Deployment  | Docker, Railway, Render |
+
+---
+
+# 📂 Project Structure
+
+```text
+student-management-system
+│
+├── sql/
+│   ├── schema.sql
+│   └── seed.sql
+│
+├── src/main/java/com/sms/
+│   ├── dao/
+│   ├── service/
+│   ├── web/
+│   ├── model/
+│   ├── util/
+│   └── SmsApplication.java
+│
+├── src/main/resources/
+│   ├── templates/
+│   ├── static/css/
+│   └── application.properties.example
+│
+├── screenshots/
+│   ├── dashboard.png
+│   ├── students.png
+│   ├── add-student.png
+│   └── edit-student.png
+│
+├── Dockerfile
+├── DEPLOYMENT.md
+└── README.md
+```
+
+---
+
+# ⚙️ Local Setup
+
+## Prerequisites
+
+* Java 17+
+* Maven 3.9+
+* MySQL 8+
+
+---
+
+## Database Setup
+
+Create the database:
+
+```sql
+CREATE DATABASE student_management;
+```
+
+Run schema:
 
 ```bash
 mysql -u root -p < sql/schema.sql
-mysql -u root -p < sql/seed.sql   # optional
 ```
 
-### Configuration
+(Optional)
 
-```powershell
-copy src\main\resources\application.properties.example src\main\resources\application.properties
+```bash
+mysql -u root -p < sql/seed.sql
 ```
 
-Edit `application.properties` with your MySQL credentials.
+---
 
-### Run
+## Configuration
 
-**IntelliJ:** Run `com.sms.SmsApplication`
+Create:
 
-**Maven:**
+```text
+src/main/resources/application.properties
+```
+
+Example:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/student_management
+spring.datasource.username=root
+spring.datasource.password=YOUR_PASSWORD
+```
+
+---
+
+## Run Application
+
+### IntelliJ IDEA
+
+Run:
+
+```text
+com.sms.SmsApplication
+```
+
+### Maven
 
 ```bash
 mvn spring-boot:run
 ```
 
-Open **http://localhost:8080**
+Open:
 
-## Project structure
-
-```
-├── sql/                    # Database schema & seed data
-├── src/main/java/com/sms/
-│   ├── SmsApplication.java
-│   ├── dao/                # JDBC data access
-│   ├── service/            # Business logic
-│   ├── web/                # Controllers
-│   ├── model/
-│   └── util/
-├── src/main/resources/
-│   ├── templates/          # Thymeleaf pages
-│   └── static/css/         # UI styles
-├── Dockerfile
-├── DEPLOYMENT.md           # GitHub + go-live guide
-└── render.yaml
+```text
+http://localhost:8080
 ```
 
-## Deploy & GitHub
+---
 
-See **[DEPLOYMENT.md](DEPLOYMENT.md)** for:
+# 🌐 Deployment
 
-- Pushing to GitHub  
-- Hosting on Railway / Render  
-- Connecting a custom domain  
-- Production environment variables  
+Deployment instructions are available in:
 
-## API routes (web)
+```text
+DEPLOYMENT.md
+```
 
-| Method | Path | Action |
-|--------|------|--------|
-| GET | `/students` | List / search by course |
-| GET | `/students/new` | Registration form |
-| POST | `/students` | Create student |
-| GET | `/students/{id}` | View details |
-| GET | `/students/{id}/edit` | Edit form |
-| POST | `/students/{id}` | Update |
-| POST | `/students/{id}/delete` | Delete |
+Supports:
 
-## License
+* Railway
+* Render
+* Docker
+* Custom Domains
 
-MIT — free for learning and portfolios.
+---
+
+# 📋 Web Routes
+
+| Method | Endpoint              | Description       |
+| ------ | --------------------- | ----------------- |
+| GET    | /students             | List students     |
+| GET    | /students/new         | Registration form |
+| POST   | /students             | Create student    |
+| GET    | /students/{id}        | View student      |
+| GET    | /students/{id}/edit   | Edit student      |
+| POST   | /students/{id}        | Update student    |
+| POST   | /students/{id}/delete | Delete student    |
+
+---
+
+# 🎯 Learning Outcomes
+
+This project demonstrates:
+
+* Java Backend Development
+* Spring Boot MVC
+* JDBC Programming
+* MySQL Database Design
+* CRUD Application Development
+* Web Application Deployment
+* Git & GitHub Workflow
+
+---
+
+# 👨‍💻 Author
+
+**Karan Kamble**
+
+Final Year B.Tech (INFORMATION TECHNOLOGY)
+
+GitHub: https://github.com/GEEKKARAN6713
+
+---
+
+⭐ If you found this project useful, consider starring the repository.
