@@ -31,25 +31,25 @@ The application demonstrates real-world backend development concepts including:
 
 ## 🏠 Dashboard
 
-![Dashboard](screenshots/Dashboard.png)
+![Dashboard](screenshots/AddStudent.png)
 
 ---
 
 ## 👨‍🎓 Student List
 
-![Student List](screenshots/StudentsList.png)
+![Student List](screenshots/Dashboard.png)
 
 ---
 
 ## ➕ Add Student
 
-![Add Student](screenshots/AddStudent.png)
+![Add Student](screenshots/EditStudent.png)
 
 ---
 
 ## ✏️ Edit Student
 
-![Edit Student](screenshots/EditStudent.png)
+![Edit Student](screenshots/StudentsList.png)
 
 ---
 
