@@ -26,6 +26,26 @@ The project demonstrates industry-standard backend development practices includi
 
 ---
 
+## 📸 Application Screenshots
+
+### 🏠 Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### ➕ Add Student
+
+![Add Student](screenshots/add-student.png)
+
+### ✏️ Edit Student
+
+![Edit Student](screenshots/edit-student.png)
+
+### 🔄 Update Student
+
+![Update Student](screenshots/update-student.png)
+
+---
+
 ## ✨ Features
 
 ### Student Management
@@ -100,6 +120,12 @@ MySQL Database
 ```text
 student-management-system
 │
+├── screenshots/
+│   ├── dashboard.png
+│   ├── add-student.png
+│   ├── edit-student.png
+│   └── update-student.png
+│
 ├── sql/
 │   ├── schema.sql
 │   └── seed.sql
@@ -135,8 +161,6 @@ student-management-system
 * MySQL 8+
 
 ### Database Setup
-
-Create the database:
 
 ```sql
 CREATE DATABASE student_management;
@@ -212,20 +236,6 @@ Supported platforms:
 * Render
 * Docker
 * Custom Domains
-
----
-
-## 📋 Application Routes
-
-| Method | Endpoint              | Description       |
-| ------ | --------------------- | ----------------- |
-| GET    | /students             | List all students |
-| GET    | /students/new         | Registration form |
-| POST   | /students             | Create student    |
-| GET    | /students/{id}        | View student      |
-| GET    | /students/{id}/edit   | Edit student      |
-| POST   | /students/{id}        | Update student    |
-| POST   | /students/{id}/delete | Delete student    |
 
 ---
 
