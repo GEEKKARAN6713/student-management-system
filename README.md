@@ -6,69 +6,43 @@
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4-green?style=for-the-badge)
 ![MySQL](https://img.shields.io/badge/MySQL-8-blue?style=for-the-badge)
 ![Maven](https://img.shields.io/badge/Maven-Build-red?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)
 
 ---
 
 ## 🚀 Overview
 
-This project is a complete Student Management System that allows administrators to manage student records through a modern web interface.
+The Student Management System is a web-based application designed to manage student records efficiently through a modern user interface.
 
-The application demonstrates real-world backend development concepts including:
+The project demonstrates industry-standard backend development practices including:
 
 * CRUD Operations
 * JDBC Database Integration
 * Layered Architecture (DAO → Service → Controller)
+* Spring Boot MVC
 * Input Validation
 * Exception Handling
-* Spring Boot MVC
 * MySQL Database Design
 * Deployment-Ready Configuration
 
 ---
 
-# 📸 Screenshots
-
-## 🏠 Dashboard
-
-![Dashboard](screenshots/AddStudent.png)
-
----
-
-## 👨‍🎓 Student List
-
-![Student List](screenshots/Dashboard.png)
-
----
-
-## ➕ Add Student
-
-![Add Student](screenshots/EditStudent.png)
-
----
-
-## ✏️ Edit Student
-
-![Edit Student](screenshots/StudentsList.png)
-
----
-
-# ✨ Features
+## ✨ Features
 
 ### Student Management
 
 * Register new students
 * View student details
-* Update student records
+* Update student information
 * Delete student records
 * Search students by course
 
 ### Database Features
 
-* Relational MySQL schema
-* Foreign key constraints
+* Relational MySQL database design
+* Foreign key relationships
 * Indexed queries
-* Audit history tracking
+* Enrollment history tracking
+* Data validation constraints
 
 ### Security & Validation
 
@@ -76,17 +50,19 @@ The application demonstrates real-world backend development concepts including:
 * Email validation
 * GPA validation
 * Structured exception handling
+* Clean error reporting
 
 ### Deployment Ready
 
+* Spring Boot application
 * Docker support
 * Railway deployment support
 * Render deployment support
-* Environment-based configuration
+* Environment variable configuration
 
 ---
 
-# 🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 | Layer       | Technology              |
 | ----------- | ----------------------- |
@@ -99,7 +75,27 @@ The application demonstrates real-world backend development concepts including:
 
 ---
 
-# 📂 Project Structure
+## 🏗️ Architecture
+
+```text
+Client Browser
+       │
+       ▼
+Spring MVC Controller
+       │
+       ▼
+Service Layer
+       │
+       ▼
+DAO Layer (JDBC)
+       │
+       ▼
+MySQL Database
+```
+
+---
+
+## 📂 Project Structure
 
 ```text
 student-management-system
@@ -114,37 +110,31 @@ student-management-system
 │   ├── web/
 │   ├── model/
 │   ├── util/
+│   ├── exception/
 │   └── SmsApplication.java
 │
 ├── src/main/resources/
 │   ├── templates/
-│   ├── static/css/
+│   ├── static/
 │   └── application.properties.example
-│
-├── screenshots/
-│   ├── dashboard.png
-│   ├── students.png
-│   ├── add-student.png
-│   └── edit-student.png
 │
 ├── Dockerfile
 ├── DEPLOYMENT.md
+├── pom.xml
 └── README.md
 ```
 
 ---
 
-# ⚙️ Local Setup
+## ⚙️ Local Setup
 
-## Prerequisites
+### Prerequisites
 
 * Java 17+
 * Maven 3.9+
 * MySQL 8+
 
----
-
-## Database Setup
+### Database Setup
 
 Create the database:
 
@@ -158,7 +148,7 @@ Run schema:
 mysql -u root -p < sql/schema.sql
 ```
 
-(Optional)
+Optional sample data:
 
 ```bash
 mysql -u root -p < sql/seed.sql
@@ -166,7 +156,7 @@ mysql -u root -p < sql/seed.sql
 
 ---
 
-## Configuration
+## 🔧 Configuration
 
 Create:
 
@@ -184,7 +174,7 @@ spring.datasource.password=YOUR_PASSWORD
 
 ---
 
-## Run Application
+## ▶️ Run Application
 
 ### IntelliJ IDEA
 
@@ -208,15 +198,15 @@ http://localhost:8080
 
 ---
 
-# 🌐 Deployment
+## 🌐 Deployment
 
-Deployment instructions are available in:
+Detailed deployment instructions are available in:
 
 ```text
 DEPLOYMENT.md
 ```
 
-Supports:
+Supported platforms:
 
 * Railway
 * Render
@@ -225,11 +215,11 @@ Supports:
 
 ---
 
-# 📋 Web Routes
+## 📋 Application Routes
 
 | Method | Endpoint              | Description       |
 | ------ | --------------------- | ----------------- |
-| GET    | /students             | List students     |
+| GET    | /students             | List all students |
 | GET    | /students/new         | Registration form |
 | POST   | /students             | Create student    |
 | GET    | /students/{id}        | View student      |
@@ -239,25 +229,27 @@ Supports:
 
 ---
 
-# 🎯 Learning Outcomes
+## 🎯 Learning Outcomes
 
-This project demonstrates:
+This project demonstrates practical experience with:
 
 * Java Backend Development
-* Spring Boot MVC
+* Spring Boot Framework
 * JDBC Programming
 * MySQL Database Design
+* MVC Architecture
 * CRUD Application Development
-* Web Application Deployment
+* Exception Handling
 * Git & GitHub Workflow
+* Web Application Deployment
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Karan Kamble**
 
-Final Year B.Tech (INFORMATION TECHNOLOGY)
+Final Year B.Tech (Information Technology)
 
 GitHub: https://github.com/GEEKKARAN6713
 
